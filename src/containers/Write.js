@@ -3,12 +3,12 @@ import Button from 'react-bootstrap/lib/Button';
 
 const ta = { margin: '20px' };
 
-class Add extends Component {
+class Write extends Component {
 
     render() {
         return (
             <div>
-                <h2>Add Data</h2>
+                <h2>Write</h2>
                 <div className={ta} style={ta}>
                     <textarea rows="4" cols="50">
                     </textarea>
@@ -26,4 +26,4 @@ class Add extends Component {
     }
 }
 
-export default Add
+export default Write

@@ -1,8 +1,6 @@
-const _ = require('lodash');
 import React, {Component} from 'react'
-import UserDisplay from '../containers/UserDisplay'
 
-class Retrieve extends Component {
+class UserDisplay extends Component {
 
     static defaultProps = {
         user: {
@@ -65,26 +63,16 @@ class Retrieve extends Component {
         }
     };
 
-    get notes() {
-        return this.props.user.notes.map( (note, index) => {
-            return (
-                <ul
-                    key={index}
-                >
-                    {note.entry}
-                </ul>
-                )
-        })
-    }
-
-    render(){
+    render() {
         return (
             <div>
-                <h2>Retrieve</h2>
-                {this.notes}
+                <div style={{}}>
+                    Welcome, {this.props.user.name.split(' ')[0]}.
+                </div>
+                Signed In As: {this.props.user.email}
             </div>
         )
     }
 }
 
-export default Retrieve
+export default UserDisplay

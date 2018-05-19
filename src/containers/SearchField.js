@@ -1,6 +1,5 @@
 const _ = require('lodash');
 import React, {Component} from 'react'
-import UserDisplay from '../containers/UserDisplay'
 
 class Retrieve extends Component {
 
@@ -65,7 +64,7 @@ class Retrieve extends Component {
         }
     };
 
-    get notes() {
+    get keywords() {
         return this.props.user.notes.map( (note, index) => {
             return (
                 <ul
@@ -73,13 +72,17 @@ class Retrieve extends Component {
                 >
                     {note.entry}
                 </ul>
-                )
+            )
         })
     }
 
     render(){
         return (
             <div>
+                <div style={{}}>
+                    Welcome, {this.props.user.name.split(' ')[0]}.
+                </div>
+                Signed In As: {this.props.user.email}
                 <h2>Retrieve</h2>
                 {this.notes}
             </div>

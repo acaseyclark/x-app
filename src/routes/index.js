@@ -3,7 +3,7 @@ import {Route, IndexRoute} from 'react-router'
 import Template from '../containers/Template'
 import Home from '../containers/Home'
 import Profile from '../containers/Profile'
-import Add from '../containers/Add'
+import Add from '../containers/Write'
 import Retrieve from '../containers/Retrieve'
 
 //add
@@ -29,7 +29,7 @@ const createRoutes = () => {
             </Route>
 
             <Route
-                path='/add'
+                path='/write'
                 component={Add}
             >
 

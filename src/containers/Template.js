@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
-
-// const heading: { 'text-shadow': '2px 2px #FF0000' };
-// const ta = { margin: '20px' };
+import UserDisplay from '../containers/UserDisplay'
 
 injectTapEventPlugin()
 
@@ -15,7 +13,8 @@ class Template extends Component {
             <MuiThemeProvider>
                 <div>
                     <header>
-                        <h1>retrieveApp</h1>
+                        <h1>ninja bread</h1>
+                        <UserDisplay/>
                     </header>
                     <main>
                         {this.props.children}
