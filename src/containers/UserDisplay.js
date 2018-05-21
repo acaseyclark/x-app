@@ -1,5 +1,9 @@
 import React, {Component} from 'react'
 
+const left = {
+    textAlign: 'left'
+};
+
 class UserDisplay extends Component {
 
     static defaultProps = {
@@ -66,7 +70,7 @@ class UserDisplay extends Component {
     render() {
         return (
             <div>
-                <div style={{}}>
+                <div style={left}>
                     Welcome, {this.props.user.name.split(' ')[0]}.
                 </div>
                 Signed In As: {this.props.user.email}

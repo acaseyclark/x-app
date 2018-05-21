@@ -5,15 +5,18 @@ import Home from '../containers/Home'
 import Profile from '../containers/Profile'
 import Add from '../containers/Write'
 import Retrieve from '../containers/Retrieve'
+import Relay from 'react-relay'
 
-//add
-//retrieve
+const ViewerQueries = {
+    viewer: () => Relay.QL`query { viewer }`
+}
 
 const createRoutes = () => {
     return (
         <Route
             path='/'
             component={Template}
+            queries={ViewerQueries}
         >
             <IndexRoute
                 component={Home}
@@ -24,22 +27,22 @@ const createRoutes = () => {
             <Route
                 path='/profile'
                 component={Profile}
+                queries={ViewerQueries}
             >
-
             </Route>
 
             <Route
                 path='/write'
                 component={Add}
+                queries={ViewerQueries}
             >
-
             </Route>
 
             <Route
                 path='/retrieve'
                 component={Retrieve}
+                queries={ViewerQueries}
             >
-
             </Route>
 
         </Route>

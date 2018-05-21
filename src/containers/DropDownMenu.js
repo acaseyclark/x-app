@@ -1,8 +1,14 @@
-const _ = require('lodash');
-import React, {Component} from 'react'
-import Relay from "react-relay";
+import React from 'react';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
 
-class Retrieve extends Component {
+const styles = {
+    customWidth: {
+        width: 200,
+    },
+};
+
+export default class DropDownMenuSimpleExample extends React.Component {
 
     static defaultProps = {
         user: {
@@ -71,38 +77,37 @@ class Retrieve extends Component {
         }
     };
 
-    get notes() {
-        return this.props.user.notes.map( (note, index) => {
-            return (
-                <ul
-                    key={index}
-                >
-                    { note.archive === false ? note.entry : null }
-                </ul>
-                )
-        })
+    constructor(props) {
+        super(props);
+        this.state = {value: 1};
     }
 
-    render(){
+    handleChange = (event, index, value) => this.setState({value});
+
+    render() {
         return (
             <div>
-                <h2>Retrieve</h2>
-                {this.notes}
+                <DropDownMenu value={this.state.value} onChange={this.handleChange}>
+                    <MenuItem value={1} primaryText="Never" />
+                    <MenuItem value={2} primaryText="Every Night" />
+                    <MenuItem value={3} primaryText="Weeknights" />
+                    <MenuItem value={4} primaryText="Weekends" />
+                    <MenuItem value={5} primaryText="Weekly" />
+                </DropDownMenu>
+                <br />
+                <DropDownMenu
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                    style={styles.customWidth}
+                    autoWidth={false}
+                >
+                    <MenuItem value={1} primaryText="Custom width" />
+                    <MenuItem value={2} primaryText="Every Night" />
+                    <MenuItem value={3} primaryText="Weeknights" />
+                    <MenuItem value={4} primaryText="Weekends" />
+                    <MenuItem value={5} primaryText="Weekly" />
+                </DropDownMenu>
             </div>
-        )
+        );
     }
 }
-
-export default Relay.createContainer(
-    Retrieve, {
-        fragments: {
-            viewer: () => Relay.QL`
-            fragment on Viewer {
-                user {
-                    id
-                }
-            }
-         `,
-        }
-    }
-)

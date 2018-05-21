@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Button from 'react-bootstrap/lib/Button';
+import Relay from "react-relay";
 
 const ta = { margin: '20px' };
 
@@ -15,7 +16,7 @@ class Write extends Component {
                     <div>
                         <Button
                             bsSize="large"
-                            onClick={()=>{console.log('Hello - I work.')}}
+                            onClick={()=>{alert('Hello - I work.')}}
                         >
                             Add Note To Your System
                         </Button>
@@ -26,4 +27,16 @@ class Write extends Component {
     }
 }
 
-export default Write
+export default Relay.createContainer(
+    Write, {
+        fragments: {
+            viewer: () => Relay.QL`
+            fragment on Viewer {
+                user {
+                    id
+                }
+            }
+         `,
+        }
+    }
+)
